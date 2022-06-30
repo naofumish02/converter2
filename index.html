@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excercise 9 | Converter </title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<div class="converter-box">
+    <h1 class="converter-title"> Length Converter </h1>
+ 
+ <input type="text" placeholder="input" id="input">
+ <span>=</span>
+ <input type="text" placeholder="result" id="result">
+ <br>
+ <br>
+ <select id="Inputty">
+    <option value="Meter"> Meter </option>
+    <option value="Kilometer"> Kilometer </option>
+    <option value="Centimeter"> Centimeter </option>
+ </select>
+
+ <select id="Resultty">
+    
+    <option value="Meter"> Meter </option>
+    <option value="Kilometer"> Kilometer </option>
+    <option value="Centimeter"> Centimeter </option>
+ </select>
+ </div>
+
+<script>
+var input = document.getElementById('input');
+var result = document.getElementById('result');
+var inputType = document.getElementById('Inputty');
+var resultType = document.getElementById('Resultty');
+var option_from,option_to;
+
+
+input.addEventListener("keyup",myResult);
+inputType.addEventListener("change",myResult);
+resultType.addEventListener("change",myResult);
+
+
+option_from = inputType.value;
+option_to   = resultType.value;
+
+
+function myResult(){
+option_from = inputType.value;
+option_to = resultType.value;
+
+
+if(option_from === "Meter" && option_to==="Kilometer"){
+   
+    result.value = Number(input.value) * 0.001;
+}else if(option_from === "Meter" && option_to==="Centimeter"){
+
+    result.value = Number(input.value) * 100;
+
+}else if(option_from === "Meter" && option_to==="Meter"){
+  
+    result.value = input.value
+}
+
+if(option_from === "Kilometer" && option_to==="Meter"){
+    
+    result.value = Number(input.value) * 1000;
+}else if(option_from === "Kilometer" && option_to==="Centimeter"){
+    
+    result.value = Number(input.value) * 100000;
+}else if(option_from === "Kilometer" && option_to==="Kilometer"){
+    
+    result.value = input.value
+}
+
+if(option_from === "Centimeter" && option_to==="Kilometer"){
+    
+    result.value = Number(input.value) * 0.00001;
+}else if(option_from === "Centimeter" && option_to==="Meter"){
+    
+    result.value = Number(input.value) * 0.01;
+}else if(option_from === "Centimeter" && option_to==="Centimeter"){
+    
+    result.value = input.value
+}
+}
+
+
+</script>
+
+</body>
+</html>
